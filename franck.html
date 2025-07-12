@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Créateur d'Alpaga</title>
+    <link rel="stylesheet" href="franck.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logofkbf" />
+        </div>
+        <h1>Alpaca Avatar Generator</h1>
+    </header>
+
+    <main>
+        <!-- Zone de prévisualisation de l'alpaga -->
+        <div class="avatar-container">
+            <!-- Chaque image correspond à une couche -->
+            <img id="backgrounds" />
+            <img id="neck" />
+            <img id="leg" />
+            <img id="hair" />
+            <img id="ears" />
+            <img id="eyes" />
+            <img id="mouth" />
+            <img id="accessories" />
+            <img id="nose" src="assets/nose.png" />
+        </div>
+        <div class="container">
+            <div class="customization-panel">
+
+                <div class="customization-panel2">
+                    <div class="control-group">
+                        <label>Hair</label>
+                        <select onchange="onPartChange('hair', this.value)">
+                            <option value="">Hair Selection</option>
+                            <option value="bang.png">Hair 1</option>
+                            <option value="curls.png">Hair 2</option>
+                            <option value="default.png">Hair 3</option>
+                            <option value="elegant.png">Hair 4</option>
+                            <option value="fancy.png">Hair 5</option>
+                            <option value="quiff.png">Hair 6</option>
+                            <option value="short.png">Hair 7</option>
+                        </select>
+                    </div>
+              
+                    <div class="control-group">
+                        <label>Eyes</label>
+                        <select onchange="onPartChange('eyes', this.value)">
+                            <option value="">eye selection</option>
+                            <option value="angry.png">eye 1</option>
+                            <option value="default.png">eye 2</option>
+                            <option value="naughty.png">eye 3</option>
+                            <option value="panda.png">eye 4</option>
+                            <option value="smart.png">eye 5</option>
+                            <option value="star.png">eye 6</option>
+                        </select>
+                    </div>
+              
+                    <div class="control-group">
+                        <label>Mouths</label>
+                        <select onchange="onPartChange('mouth', this.value)">
+                            <option value="">selection of mouths</option>
+                            <option value="astonished.png">mouth 1</option>
+                            <option value="default.png">mouth 2</option>
+                            <option value="eating.png">mouth 3</option>
+                            <option value="laugh.png">mouth 4</option>
+                            <option value="tongue.png">mouth 5</option>
+                        </select>
+                    </div>
+                </div>
+          
+                <div class="customization-panel3">
+                    <div class="control-group">
+                        <label>Accessories</label>
+                        <select onchange="onPartChange('accessories', this.value)">
+                            <option value="">selection of accessories</option>
+                            <option value="earings.png">Accessories 1</option>
+                            <option value="flower.png">Accessories 2</option>
+                            <option value="glasses.png">Accessories 3</option>
+                            <option value="headphone.png">Accessories 4</option>
+                        </select>
+                    </div>
+        
+                    <div class="control-group">
+                        <label>Backgroungs</label>
+                        <select onchange="onPartChange('backgrounds', this.value)">
+                            <option value="">background selection</option>
+                            <option value="blue50.png">blue50</option>
+                            <option value="blue60.png">blue60</option>
+                            <option value="blue70.png">blue70</option>
+                            <option value="darkblue30.png">darkblue30</option>
+                            <option value="darkblue50.png">darkblue50</option>
+                            <option value="darkblue70.png">darkblue70</option>
+                            <option value="green50.png">green50</option>
+                            <option value="green60.png">green60</option>
+                            <option value="green70.png">green70</option>
+                            <option value="grey40.png">grey40</option>
+                            <option value="grey70.png">grey70</option>
+                            <option value="grey80.png">grey80</option>
+                            <option value="red50.png">red50</option>
+                            <option value="red60.png">red60</option>
+                            <option value="red70.png">red70</option>
+                            <option value="yellow50.png">yellow50</option>
+                            <option value="yellow60.png">yellow60</option>
+                            <option value="yellow70.png">yellow70</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Ears</label>
+                        <select onchange="onPartChange('ears', this.value)">
+                            <option value="">selection of the Ear</option>
+                            <option value="default.png">ears 1</option>
+                            <option value="tilt-backward.png">ears 2</option>
+                            <option value="tilt-forward.png">ears 3</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="customization-panel4">
+                    <div class="control-group">
+                        <label>Legs</label>
+                        <select onchange="onPartChange('leg', this.value)">
+                            <option value="">selection of the legs</option>
+                            <option value="default.png">Normal Leg</option>
+                            <option value="bubble-tea.png">Leg with Drink</option>
+                            <option value="cookie.png">Leg with Cookie</option>
+                            <option value="game-console.png">Leg with game console</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Necks</label>
+                        <select onchange="onPartChange('neck', this.value)">
+                            <option value="">selection of the neck</option>
+                            <option value="bend-backward.png">neck 1</option>
+                            <option value="bend-forward.png">neck 2</option>
+                            <option value="default.png">neck 3</option>
+                            <option value="thick.png">neck 4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Panneau de personnalisation -->
+            <div class="controls">
+                <button onclick="randomizeAvatar()">Random</button>
+                <button onclick="downloadAvatar()">Download</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="franck.js"></script>
+</body>
+</html>
